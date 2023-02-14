@@ -27,6 +27,7 @@ export class AppController {
   @Get('api/kutya')
   async listKutya() {
     const repo = this.dataSource.getRepository(Kutya);
+    return repo.find();
   }
 
   @Delete('api/kutya/:id')

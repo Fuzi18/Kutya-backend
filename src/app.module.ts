@@ -11,7 +11,7 @@ import Kutya from './kutya.entity';
       host: 'localhost',
       username: 'root',
       password: '',
-      database: 'database',
+      database: 'kutya',
       entities: [Kutya],
       synchronize: true,
     }),
