@@ -10,6 +10,7 @@ import {
 import { DataSource } from 'typeorm';
 import { AppService } from './app.service';
 import Kutya from './kutya.entity';
+import KutyaDto from './kutyus.dto';
 
 @Controller()
 export class AppController {
@@ -31,13 +32,14 @@ export class AppController {
   }
 
   @Delete('api/kutya/:id')
-  deleteKutya(@Param('id') id: number) {
+  async deleteKutya(@Param('id') id: number) {
     const repo = this.dataSource.getRepository(Kutya);
+    return await repo.find();
   }
 
   @Post('api/kutya')
-  postKutya(@Body() kutya: Kutya) {
+  async postKutya(@Body() kutya: KutyaDto) {
     const repo = this.dataSource.getRepository(Kutya);
-    repo.save(kutya);
+    return await repo.save(kutya);
   }
 }
