@@ -34,7 +34,7 @@ export class AppController {
   @Delete('api/kutya/:id')
   async deleteKutya(@Param('id') id: number) {
     const repo = this.dataSource.getRepository(Kutya);
-    return await repo.find();
+    await repo.delete(id);
   }
 
   @Post('api/kutya')
